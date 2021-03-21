@@ -57,3 +57,4 @@ services:
 
 volumes:
   test-database-data:
+  grafana_data:
