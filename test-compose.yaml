@@ -49,8 +49,6 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
-    environment:
-      - HOST_IP=http://134.209.248.68:9090
 
 
 volumes:
