@@ -42,8 +42,6 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana 
 
-    
-
   prometheus:
     image: prom/prometheus:v2.1.0
     volumes:
