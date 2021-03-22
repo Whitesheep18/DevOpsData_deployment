@@ -39,18 +39,20 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana  
 
   prometheus:
     image: prom/prometheus:v2.1.0
     volumes:
       - ./prometheus:/etc/prometheus/
+
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
-    environment:
-      - HOST_IP=http://157.230.77.141:9090
 
 
 volumes:
   database-data:
+  grafana-data:

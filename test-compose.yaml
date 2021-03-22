@@ -40,6 +40,8 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana 
 
   prometheus:
     container_name: test_prometheus
@@ -51,8 +53,6 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
-    environment:
-      - HOST_IP=http://134.209.248.68:9090
 
   elasticsearch:
     container_name: test_elasticsearch
@@ -63,12 +63,16 @@ services:
       - xpack.security.enabled=false
     volumes:
       - test-elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
 
   kibana:
     container_name: test_kibana
     image: "docker.elastic.co/kibana/kibana:7.2.0"
     environment:
-      elasticsearch.hosts: '["http://elasticsearch:9200"]'
+      elasticsearch.hosts: '["localhost:9200"]'
+    ports:
+      - 5601:5601
 
   filebeat:
     container_name: test_filebeat
@@ -82,3 +86,4 @@ services:
 volumes:
   test-database-data:
   test-elasticsearch-data:
+  grafana_data:
