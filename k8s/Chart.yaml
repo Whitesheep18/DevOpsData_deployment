@@ -1,0 +1,8 @@
+name: test-compose
+description: A generated Helm Chart for test-compose from Skippbox Kompose
+version: 0.0.1
+apiVersion: v1
+keywords:
+  - test-compose
+sources:
+home:
