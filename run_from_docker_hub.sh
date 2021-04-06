@@ -1,4 +1,5 @@
 #!/bin/bash
+git stash && \
 git pull && \
 docker-compose -f deploy-compose.yaml down --remove-orphans && \
 docker rmi $(docker images -a -q)
