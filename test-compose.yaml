@@ -85,5 +85,5 @@ services:
 volumes:
   test-database-data:
   test-elasticsearch-data:
-  grafana_data:
+  grafana-data:
   prometheus-data:
