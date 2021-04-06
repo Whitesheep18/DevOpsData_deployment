@@ -36,19 +36,18 @@ services:
       - "8080:8080"
 
   grafana:
-    container_name: test_grafana
-    image: grafana/grafana
+    container_name: grafana
+    build: ./grafana
     ports:
       - "3000:3000"
     volumes:
-      - grafana_data:/var/lib/grafana 
+      - grafana-data:/var/lib/grafana  
 
   prometheus:
-    container_name: test_prometheus
-    image: prom/prometheus
+    image: prom/prometheus:v2.1.0
     volumes:
       - ./prometheus:/etc/prometheus/
-
+      - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
@@ -87,3 +86,4 @@ volumes:
   test-database-data:
   test-elasticsearch-data:
   grafana_data:
+  prometheus-data:

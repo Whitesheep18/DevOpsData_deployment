@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  database:
+    container_name: database_minitwit
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "superuser"
+      POSTGRES_PASSWORD: "su"
+      POSTGRES_DB: "database_minitwit"
+    ports:
+      - "5555:5432"
+    volumes:
+      - "database-data:/var/lib/postgresql/data/"
+  web:
+    container_name: web_minitwit
+    build: ../DevOpsData/Web
+    command: python3 manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - "database"
+      - "api"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "../DevOpsData/Web/itu_minitwit:/itu_minitwit"
+  api:
+    container_name: api_minitwit
+    build: ../DevOpsData/Api
+    command: ./start.sh
+    depends_on:
+      - "database"
+      - "prometheus"
+      - "grafana"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "../DevOpsData/Api/minitwitAPI:/minitwitAPI"
+
+  grafana:
+    container_name: grafana
+    build: ./grafana
+    ports:
+      - "3000:3000"
+
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ../DevOpsData:/etc/prometheus/
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+
+volumes:
+  database-data:
+  prometheus-data:
