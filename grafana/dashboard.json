@@ -18,7 +18,7 @@
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -27,223 +27,377 @@
         "y": 0
       },
       "id": 10,
-      "panels": [
-        {
-          "datasource": "Prometheus",
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "max": 100,
-              "min": 0,
-              "thresholds": {
-                "mode": "percentage",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "%"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 7,
-            "x": 0,
-            "y": 8
-          },
-          "id": 2,
-          "options": {
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true,
-            "text": {}
-          },
-          "pluginVersion": "7.5.2",
-          "targets": [
-            {
-              "expr": "minitwit_cpu_load_percent{alias=\"api\"}",
-              "interval": "",
-              "legendFormat": "API",
-              "queryType": "randomWalk",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CPU Load",
-          "type": "gauge"
-        },
-        {
-          "datasource": "Prometheus",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "dtdurations"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 5,
-            "x": 7,
-            "y": 8
-          },
-          "id": 20,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.5.2",
-          "targets": [
-            {
-              "expr": "time()-process_start_time_seconds{alias=\"api\", instance=\"api:8080\", job=\"api_monitoring\"}",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "queryType": "randomWalk",
-              "refId": "A"
-            }
-          ],
-          "title": "UPTIME",
-          "type": "stat"
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 8
-          },
-          "hiddenSeries": false,
-          "id": 12,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.2",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "queryType": "randomWalk",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Noise",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:192",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:193",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "title": "System Metrics",
       "type": "row"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dtdurations"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 1
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "time()-process_start_time_seconds{alias=\"web\", instance=\"web:8000\", job=\"web_monitoring\"}",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "time()-process_start_time_seconds{alias=\"api\", instance=\"api:8080\", job=\"api_monitoring\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "API",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "UPTIME",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 16,
+        "x": 5,
+        "y": 1
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Noise",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:192",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:193",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 7,
+        "x": 0,
+        "y": 7
+      },
+      "id": 39,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "minitwit_memory_gauge{alias=\"web\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "minitwit_memory_gauge{alias=\"api\"}",
+          "interval": "",
+          "legendFormat": "API",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory usage",
+      "type": "gauge"
+    },
+    {
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 7,
+        "x": 7,
+        "y": 7
+      },
+      "id": 2,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "minitwit_cpu_load_percent{alias=\"web\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "minitwit_cpu_load_percent{alias=\"api\"}",
+          "interval": "",
+          "legendFormat": "API",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Load",
+      "type": "gauge"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 7,
+        "x": 14,
+        "y": 7
+      },
+      "id": 37,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "minitwit_disk_gauge{alias=\"web\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "minitwit_disk_gauge{alias=\"api\"}",
+          "interval": "",
+          "legendFormat": "API",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Usage",
+      "type": "gauge"
     },
     {
       "collapsed": false,
@@ -252,7 +406,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 17
       },
       "id": 8,
       "panels": [],
@@ -270,7 +424,7 @@
         "h": 3,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 18
       },
       "id": 31,
       "options": {
@@ -304,7 +458,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 5
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 4,
@@ -402,7 +556,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 5
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 28,
@@ -500,7 +654,7 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 5
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 14,
@@ -598,7 +752,7 @@
         "h": 7,
         "w": 6,
         "x": 18,
-        "y": 5
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 15,
@@ -687,7 +841,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 28
       },
       "id": 27,
       "panels": [],
@@ -712,7 +866,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 13
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 13,
@@ -812,7 +966,7 @@
         "h": 7,
         "w": 9,
         "x": 8,
-        "y": 13
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 32,
@@ -896,62 +1050,6 @@
     },
     {
       "datasource": "Prometheus",
-      "description": "Total sign-Ins in past 24 hours",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": []
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 7,
-        "x": 17,
-        "y": 13
-      },
-      "id": 29,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.3",
-      "targets": [
-        {
-          "expr": "increase(total_sign_ins_total[1d])",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "queryType": "randomWalk",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total Sign-Ins",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -971,7 +1069,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 20
+        "y": 36
       },
       "id": 35,
       "options": {
@@ -993,18 +1091,91 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "total_active_users",
+          "expr": "total_active_users{alias=\"api\"}",
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "",
+          "legendFormat": "API",
           "queryType": "randomWalk",
           "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "total_active_users{alias=\"web\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
       "title": "Active users",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "description": "Total sign-Ins in past 24 hours",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 9,
+        "x": 8,
+        "y": 36
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(total_sign_ins_total{alias=\"api\"}[1d])",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "API",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(total_sign_ins_total{alias=\"web\"}[1d])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "WEB",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Sign-Ins",
       "type": "stat"
     },
     {
@@ -1014,7 +1185,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 43
       },
       "id": 18,
       "panels": [],
@@ -1047,7 +1218,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 28
+        "y": 44
       },
       "id": 34,
       "options": {
@@ -1140,7 +1311,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 28
+        "y": 44
       },
       "id": 16,
       "options": {
@@ -1212,7 +1383,7 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 28
+        "y": 44
       },
       "id": 23,
       "options": {
@@ -1279,5 +1450,5 @@
   "timezone": "",
   "title": "Minitwit",
   "uid": "H9xWFB_Mk",
-  "version": 2
+  "version": 3
 }
