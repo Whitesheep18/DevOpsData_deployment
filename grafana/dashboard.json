@@ -82,17 +82,8 @@
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "WEB",
+          "legendFormat": "",
           "refId": "B"
-        },
-        {
-          "exemplar": true,
-          "expr": "time()-process_start_time_seconds{alias=\"api\", instance=\"api:8080\", job=\"api_monitoring\"}",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "API",
-          "queryType": "randomWalk",
-          "refId": "A"
         }
       ],
       "timeFrom": null,
@@ -244,16 +235,8 @@
           "expr": "minitwit_memory_gauge{alias=\"web\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "WEB",
+          "legendFormat": "",
           "refId": "B"
-        },
-        {
-          "exemplar": true,
-          "expr": "minitwit_memory_gauge{alias=\"api\"}",
-          "interval": "",
-          "legendFormat": "API",
-          "queryType": "randomWalk",
-          "refId": "A"
         }
       ],
       "title": "Memory usage",
@@ -314,16 +297,8 @@
           "expr": "minitwit_cpu_load_percent{alias=\"web\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "WEB",
+          "legendFormat": "",
           "refId": "B"
-        },
-        {
-          "exemplar": true,
-          "expr": "minitwit_cpu_load_percent{alias=\"api\"}",
-          "interval": "",
-          "legendFormat": "API",
-          "queryType": "randomWalk",
-          "refId": "A"
         }
       ],
       "timeFrom": null,
@@ -382,16 +357,8 @@
           "expr": "minitwit_disk_gauge{alias=\"web\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "WEB",
+          "legendFormat": "",
           "refId": "B"
-        },
-        {
-          "exemplar": true,
-          "expr": "minitwit_disk_gauge{alias=\"api\"}",
-          "interval": "",
-          "legendFormat": "API",
-          "queryType": "randomWalk",
-          "refId": "A"
         }
       ],
       "timeFrom": null,
@@ -1450,5 +1417,5 @@
   "timezone": "",
   "title": "Minitwit",
   "uid": "H9xWFB_Mk",
-  "version": 3
+  "version": 4
 }
