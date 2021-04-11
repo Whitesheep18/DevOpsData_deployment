@@ -86,3 +86,4 @@ volumes:
   database-data:
   elasticsearch-data:
   grafana-data:
+  prometheus-data:
